@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 session_start();
 $db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=library;charset=utf8', 'root', '');
@@ -37,8 +37,8 @@ class Borrow extends \atk4\data\Model {
     $this->addField('date_returned',['type'=>'date']);
     $this->addField('returned');
     $this->addField('quantity');
-  $this->hasOne('clientid', new Client)->addTitle();
-  $this->hasOne('bookid', new Book)->addTitle();
+    $this->hasOne('clientid', new Client);
+    $this->hasOne('bookid', new Book);
   }
 }
 
