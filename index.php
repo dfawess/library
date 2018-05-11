@@ -5,25 +5,13 @@ require 'connecting.php';
 $app = new \atk4\ui\App('Library');
 $app->initLayout('Centered');
 
-$crud = $app->layout->add('CRUD');
-$crud->setModel(new Book($db));
-
-$crud = $app->layout->add('CRUD');
-$crud->setModel(new Client($db));
-
-$crud = $app->layout->add('CRUD');
-$crud->setModel(new Librarian($db));
-
-$crud = $app->layout->add('CRUD');
-$crud->setModel(new Borrow($db));
-
-$someone = new Student($db);
+$someone = new Librarian($db);
 $form = $app->layout->add('Form');
-$form->setModel(new Student($db));
+$form->setModel(new Librarian($db));
 $form->buttonSave->set('Вход');
 $form->onSubmit(function($form) use ($someone) {
-  $form->model['nick_name']
-  $someone = $form->model->tryLoadBy('nick_name',' fiqegqdj0[wqdw]');
+
+  $someone = $form->model->tryLoadBy('name',$form->model['name']);
   $someone->tryLoadBy('name',$form->model['name']);
   if ($someone['surname'] == $form->model['surname']){
     if ($someone['password'] == $form->model['password']) {

@@ -37,8 +37,8 @@ class Borrow extends \atk4\data\Model {
     $this->addField('date_returned',['type'=>'date']);
     $this->addField('returned');
     $this->addField('quantity');
-    $this->hasOne('clientid', new Client);
-    $this->hasOne('bookid', new Book);
+  $this->hasOne('clientid', new Client)->addTitle();
+  $this->hasOne('bookid' , new Book)->addTitle();
   }
 }
 
