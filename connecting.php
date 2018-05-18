@@ -1,8 +1,8 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 session_start();
-$db = new \atk4\data\Persistence_SQL('mysql:127.0.0.1;dbname=library;charset=utf8', 'root', '');
+$db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=library;charset=utf8', 'root', '');
 
 
 class Client extends \atk4\data\Model {
@@ -35,10 +35,10 @@ class Borrow extends \atk4\data\Model {
     parent::init();
     $this->addField('date_checked_out',['type'=>'date']);
     $this->addField('date_returned',['type'=>'date']);
-    $this->addField('returned');
+    $this->addField('returned',['type'=>'boolean']);
     $this->addField('quantity');
-  $this->hasOne('clientid', new Client)->addTitle();
-  $this->hasOne('bookid' , new Book)->addTitle();
+  $this->hasOne('client_id', new Client)->addTitle();
+  $this->hasOne('book_id' , new Book)->addTitle();
   }
 }
 
