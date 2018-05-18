@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 require 'connecting.php';
 
 $app = new \atk4\ui\App('Library');
