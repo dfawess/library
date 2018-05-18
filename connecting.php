@@ -1,5 +1,4 @@
 <?php
-require '../vendor/autoload.php';
 
 session_start();
 $db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=library;charset=utf8', 'root', '');
